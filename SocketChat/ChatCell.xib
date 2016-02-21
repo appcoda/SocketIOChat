@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellChat" rowHeight="90" id="F62-I8-xka" customClass="ChatCell" customModule="SocketChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F62-I8-xka" id="8ud-zM-z7L">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGY-vB-1NI">
+                        <rect key="frame" x="8" y="8" width="304" height="42"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-4r-fuH">
+                        <rect key="frame" x="0.0" y="58" width="320" height="21"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Gabriel at 18:15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuJ-v8-Xlf">
+                                <rect key="frame" x="8" y="0.0" width="304" height="21"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Xhx-ay-TDW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZuJ-v8-Xlf" firstAttribute="top" secondItem="t8f-4r-fuH" secondAttribute="top" id="6pc-Rh-Dhg"/>
+                            <constraint firstAttribute="height" constant="21" id="7Vy-Rx-7C9"/>
+                            <constraint firstItem="ZuJ-v8-Xlf" firstAttribute="leading" secondItem="t8f-4r-fuH" secondAttribute="leading" constant="8" id="gPL-9w-lzc"/>
+                            <constraint firstAttribute="trailing" secondItem="ZuJ-v8-Xlf" secondAttribute="trailing" constant="8" id="q9c-v3-sCV"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="t8f-4r-fuH" secondAttribute="bottom" constant="2" id="IuJ-jI-Jpa"/>
+                    <constraint firstItem="t8f-4r-fuH" firstAttribute="top" secondItem="vGY-vB-1NI" secondAttribute="bottom" constant="8" id="LD1-tu-Of7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="t8f-4r-fuH" secondAttribute="trailing" constant="-8" id="Tjp-a7-UHf"/>
+                    <constraint firstItem="vGY-vB-1NI" firstAttribute="leading" secondItem="8ud-zM-z7L" secondAttribute="leadingMargin" id="V88-dW-X8E"/>
+                    <constraint firstItem="vGY-vB-1NI" firstAttribute="top" secondItem="8ud-zM-z7L" secondAttribute="topMargin" id="jYf-AI-zjj"/>
+                    <constraint firstItem="vGY-vB-1NI" firstAttribute="trailing" secondItem="8ud-zM-z7L" secondAttribute="trailingMargin" id="xgh-Vu-uFS"/>
+                    <constraint firstItem="t8f-4r-fuH" firstAttribute="leading" secondItem="8ud-zM-z7L" secondAttribute="leadingMargin" constant="-8" id="zdg-iA-oli"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="lblChatMessage" destination="vGY-vB-1NI" id="YXj-Ms-qiB"/>
+                <outlet property="lblMessageDetails" destination="ZuJ-v8-Xlf" id="sQu-zY-NMu"/>
+            </connections>
+            <point key="canvasLocation" x="903" y="305"/>
+        </tableViewCell>
+    </objects>
+</document>
