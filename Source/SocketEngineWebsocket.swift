@@ -26,39 +26,37 @@
 import Foundation
 
 /// Protocol that is used to implement socket.io WebSocket support
-public protocol SocketEngineWebsocket: SocketEngineSpec, WebSocketDelegate {
-    var ws: WebSocket? { get }
-
-    func sendWebSocketMessage(str: String, withType type: SocketEnginePacketType, withData datas: [NSData])
+public protocol SocketEngineWebsocket : SocketEngineSpec, WebSocketDelegate {
+    func sendWebSocketMessage(_ str: String, withType type: SocketEnginePacketType, withData datas: [Data])
 }
 
 // WebSocket methods
 extension SocketEngineWebsocket {
     func probeWebSocket() {
         if ws?.isConnected ?? false {
-            sendWebSocketMessage("probe", withType: .Ping, withData: [])
+            sendWebSocketMessage("probe", withType: .ping, withData: [])
         }
     }
     
     /// Send message on WebSockets
     /// Only call on emitQueue
-    public func sendWebSocketMessage(str: String, withType type: SocketEnginePacketType, withData datas: [NSData]) {
-            DefaultSocketLogger.Logger.log("Sending ws: %@ as type: %@", type: "SocketEngine", args: str, type.rawValue)
-            
-            ws?.writeString("\(type.rawValue)\(str)")
-            
-            for data in datas {
-                if case let .Left(bin) = createBinaryDataForSend(data) {
-                    ws?.writeData(bin)
-                }
+    public func sendWebSocketMessage(_ str: String, withType type: SocketEnginePacketType, withData datas: [Data]) {
+        DefaultSocketLogger.Logger.log("Sending ws: %@ as type: %@", type: "SocketEngine", args: str, type.rawValue)
+        
+        ws?.write(string: "\(type.rawValue)\(str)")
+        
+        for data in datas {
+            if case let .left(bin) = createBinaryDataForSend(using: data) {
+                ws?.write(data: bin)
             }
+        }
     }
     
     public func websocketDidReceiveMessage(socket: WebSocket, text: String) {
         parseEngineMessage(text, fromPolling: false)
     }
     
-    public func websocketDidReceiveData(socket: WebSocket, data: NSData) {
+    public func websocketDidReceiveData(socket: WebSocket, data: Data) {
         parseEngineData(data)
     }
 }

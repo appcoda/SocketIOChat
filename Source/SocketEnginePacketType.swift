@@ -25,6 +25,6 @@
 
 import Foundation
 
-@objc public enum SocketEnginePacketType: Int {
-    case Open, Close, Ping, Pong, Message, Upgrade, Noop
+@objc public enum SocketEnginePacketType : Int {
+    case open, close, ping, pong, message, upgrade, noop
 }

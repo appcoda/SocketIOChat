@@ -24,7 +24,7 @@
 
 import Foundation
 
-public final class SocketAckEmitter: NSObject {
+public final class SocketAckEmitter : NSObject {
     let socket: SocketIOClient
     let ackNum: Int
     
@@ -33,15 +33,15 @@ public final class SocketAckEmitter: NSObject {
         self.ackNum = ackNum
     }
     
-    public func with(items: AnyObject...) {
+    public func with(_ items: SocketData...) {
         guard ackNum != -1 else { return }
         
-        socket.emitAck(ackNum, withItems: items)
+        socket.emitAck(ackNum, with: items)
     }
     
-    public func with(items: [AnyObject]) {
+    public func with(_ items: [Any]) {
         guard ackNum != -1 else { return }
         
-        socket.emitAck(ackNum, withItems: items)
+        socket.emitAck(ackNum, with: items)
     }
 }
