@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class BaseCell: UITableViewCell {
 
@@ -14,16 +15,16 @@ class BaseCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        separatorInset = UIEdgeInsetsZero
+        separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         preservesSuperviewLayoutMargins = false
-        layoutMargins = UIEdgeInsetsZero
+        layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
         layoutIfNeeded()
         
         // Set the selection style to None.
-        selectionStyle = UITableViewCellSelectionStyle.None
+        selectionStyle = UITableViewCellSelectionStyle.none
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
